@@ -41,14 +41,15 @@ app.get("/scoreUpdated", (req, res) => {
 });
 
 app.post("/scoreUpdated", async (req, res) => {
-    const now = new Date()
-    const datetime = `${now.toLocaleDateString()} ${now.toLocaleTimeString()}`;
+    const now = new Date();
+    const date = now.toLocaleDateString("en-SG", { timeZone: "Asia/Singapore" });
+    const time = now.toLocaleTimeString("en-SG", { timeZone: "Asia/Singapore" });
 
     const scores = req.body.scores.sort((a, b) => b[1] - a[1]);
     scores.forEach((elem, index, arr) => {
         arr[index] = `${index + 1}. Team ${elem[0]}: ${elem[1]}`;
     });
-    const message = "__Leaderboards__\nUpdated at " + datetime + "\n```\n" + scores.join('\n') + "```";
+    const message = `__Leaderboards__\nUpdated at ${date} ${time}\n` + "```\n" + scores.join('\n') + "```";
 
     const chats = JSON.parse(fs.readFileSync("./chats.json").toString());
     const tele = chats.telegram;
