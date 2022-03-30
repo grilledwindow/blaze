@@ -160,6 +160,6 @@ app.get("/authorized", (req, res) => {
     res.sendFile(import.meta.url + "/authorized.html");
 })
 // start the Express server
-app.listen(port, () => {
-    console.log(`server started at http://localhost:${port}`);
+app.listen(process.env.PORT, () => {
+    console.log(`server started at port ${process.env.PORT}`);
 });
