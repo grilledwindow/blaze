@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "module": "es2022",
+        // "esModuleInterop": false,
+        "target": "es2022",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "outDir": "dist",
+        "allowSyntheticDefaultImports": true
+    },
+    "lib": [
+        "es2019",
+        "es2020.bigint",
+        "es2020.string",
+        "es2020.symbol.wellknown"
+    ]
+}
