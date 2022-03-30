@@ -6,8 +6,9 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "./node_modules/typescript/bin/tsc",
     "build": "tsc",
-    "postinstall": "tsc",
+    "postinstall": "npm run build",
     "watch": "tsc -w",
     "start": "npm i; node ."
   },
