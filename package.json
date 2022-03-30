@@ -10,7 +10,7 @@
     "build": "tsc",
     "postinstall": "npm run tsc",
     "watch": "tsc -w",
-    "start": "npm i; node ."
+    "start": "node ."
   },
   "author": "",
   "license": "ISC",
