@@ -52,13 +52,15 @@ app.post("/scoreUpdated", async (req, res) => {
     const message = `__Leaderboards__\nUpdated at ${date} ${time}\n` + "```\n" + scores.join('\n') + "```";
 
     const chats = JSON.parse(fs.readFileSync("./chats.json").toString());
-    const tele = chats.telegram;
+    const teleArr = chats.telegram;
     const disc = chats.discord;
 
-    bots.telegram.sendLeaderboard(message, tele.chat_id, tele.message_id)
-        .then(res => res.json())
-        .then(data => console.log("telegram leaderboard message_id:", data["result"].message_id))
-        .catch(console.error);
+    for (const tele of teleArr) {
+        bots.telegram.sendLeaderboard(message, tele.chat_id, tele.message_id)
+            .then(res => res.json())
+            .then(data => console.log("telegram leaderboard message_id:", data["result"].message_id))
+            .catch(console.error);
+    }
 
     (disc.message_id
         ? bot.editMessage(disc.channel_id, disc.message_id, message)

@@ -1,8 +1,13 @@
 {
-    "telegram": {
-        "chat_id": "-1001619132025",
-        "message_id": "418"
-    },
+    "telegram": [
+        {
+            "chat_id": "-1001619132025",
+            "message_id": "418"
+        },
+        {
+            "chat_id": "-596033171"
+        }
+    ],
     "discord": {
         "channel_id": "931922073285173279",
         "message_id": "958808830911860826"
