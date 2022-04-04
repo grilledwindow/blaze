@@ -58,7 +58,13 @@ app.post("/scoreUpdated", async (req, res) => {
     for (const tele of teleArr) {
         bots.telegram.sendLeaderboard(message, tele.chat_id, tele.message_id)
             .then(res => res.json())
-            .then(data => console.log("telegram leaderboard message_id:", data["result"].message_id))
+            .then(data => {
+                if (!data || !data["result"]) {
+                    console.log(data);
+                } else {
+                    console.log("telegram leaderboard message_id:", data["result"].message_id);
+                }
+            })
             .catch(console.error);
     }
 
